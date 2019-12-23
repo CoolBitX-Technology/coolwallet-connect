@@ -143,7 +143,7 @@ class GenerateWallet extends Component {
 							))}
 						</SeedLengthWrapper>
 						<Text2>length of seed</Text2>
-						<Button theme={themeDarkGray} label={'Generate'} handleOnClick={this.step1} />
+						<Button label={'Generate'} handleOnClick={this.step1} />
 					</Fragment>
 				);
 			case 2:
@@ -151,7 +151,7 @@ class GenerateWallet extends Component {
 					<Fragment>
 						<Image src={'card.png'} />
 						<Text2>Please look on your card and write down your seed.</Text2>
-						<Button theme={themeDarkGray} label={'I’ve written my seed!'} handleOnClick={this.step2} />
+						<Button label={'I’ve written my seed!'} handleOnClick={this.step2} />
 					</Fragment>
 				);
 			case 3:
@@ -162,7 +162,7 @@ class GenerateWallet extends Component {
 							placeholder={'Your Answer'}
 						/>
 						<Text2>Sum up ALL the numbers of you seed</Text2>
-						<Button theme={themeDarkGray} label={'Confirm'} handleOnClick={this.step3} />
+						<Button label={'Confirm'} handleOnClick={this.step3} />
 					</Fragment>
 				);
 			default:

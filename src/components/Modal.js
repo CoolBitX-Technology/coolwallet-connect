@@ -9,15 +9,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Button from './Button';
 import { BROWN_GREY, GREYISH_BROWN, DARK_GREY, LARGE } from '../constant';
 
-const themeLightGray = {
-	button: {
-		background: BROWN_GREY,
-		color: GREYISH_BROWN,
-		hoverBackground: DARK_GREY,
-		hoverColor: BROWN_GREY
-	}
-};
-
 class Modal extends Component {
 	render() {
 		const { showModal, closeModal } = this.props;
@@ -60,7 +51,6 @@ class Modal extends Component {
 								width={150}
 								label={action.CancelText}
 								handleOnClick={closeModal}
-								theme={themeLightGray}
 							/>
 						) : null}
 					</ActionWrapper>

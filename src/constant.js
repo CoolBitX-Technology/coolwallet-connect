@@ -14,3 +14,13 @@ export const MEDIUM = '1.125rem'; //18px
 export const LARGE = '1.25rem'; //20px
 export const EXTRA_LARGE = '1.5rem'; //25px
 export const HUGE = '2.1rem'; //35px
+
+//theme
+export const themeLightGray = {
+	button: {
+		background: BROWN_GREY,
+		color: GREYISH_BROWN,
+		hoverBackground: DARK_GREY,
+		hoverColor: BROWN_GREY
+	}
+};
