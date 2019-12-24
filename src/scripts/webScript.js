@@ -29,7 +29,7 @@ class webPageEventHandler extends Component {
 				await this.waitForConnection();
 				switch (action) {
 					case 'coolwallet-connection-check':
-						this.checkConnected();
+						this.checkReadyForCommand();
 						break;
 					case 'coolwallet-unlock':
 						this.props.openModal(processingContent());
@@ -66,8 +66,9 @@ class webPageEventHandler extends Component {
 		}
 	}
 
-	async checkConnected() {
-		if (this.props.transport !== null) {
+	async checkReadyForCommand() {
+		if (this.props.transport && this.props.device && this.props.isConnected ) {
+			console.log(`connected:... return true`)
 			this.bc.postMessage({ target: 'connection-status', connected: true });
 		}
 	}

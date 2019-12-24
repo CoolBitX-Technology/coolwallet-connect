@@ -47,10 +47,6 @@ class Bluetooth extends Component {
 						})
 					);
 				});
-
-				// inform IFRAME ready for data
-				let bc = new BroadcastChannel('coolwallets');
-				bc.postMessage({ target: 'connection-status', connected: true });
 				setupTransport(transport);
 				setupIsConnected(true);
 				setupDevice(device);
@@ -72,7 +68,12 @@ class Bluetooth extends Component {
 						const { walletCreated } = await wallet.getCardInfo();
 						closeModal();
 						if (walletCreated) {
+							console.log(`wallet created, return connection status true la`)
+							let bc = new BroadcastChannel('coolwallets');
+							bc.postMessage({ target: 'connection-status', connected: true });
+							
 							return transport;
+							
 						} else {
 							// 進去 createWallet
 							this.props.history.push({

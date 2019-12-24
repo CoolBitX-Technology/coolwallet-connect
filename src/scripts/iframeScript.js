@@ -11,8 +11,8 @@ export default class IframeComponent extends Component {
   }
 
   setupListeners() {
-    const tabDomain = 'https://coolbitx-technology.github.io/coolwallet-connect/#/'
-    // const tabDomain = 'http://localhost:3000'
+    // const tabDomain = 'https://coolbitx-technology.github.io/coolwallet-connect/#/'
+    const tabDomain = 'http://localhost:3000'
 
     // Open as IFRAME
     onmessage = async ({ data, source, origin }) => {
@@ -37,6 +37,7 @@ export default class IframeComponent extends Component {
 
     this.bc.onmessage = ({ data, source }) => {
       if (data.target === 'connection-status' ) {
+        console.log(`got connect status: ${data.connected}`)
         this.tabConnected = data.connected
       } else {
         this.sendMessageToExtension(data)
@@ -45,6 +46,7 @@ export default class IframeComponent extends Component {
   }
 
   pingTab(){
+    console.log(`ping tab check connected???`)
     this.bc.postMessage({ target: 'CWS-TAB', action: 'coolwallet-connection-check' })
   }
 

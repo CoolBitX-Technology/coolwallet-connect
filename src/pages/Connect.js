@@ -8,6 +8,15 @@ import { EXTRA_LARGE } from '../constant';
 import { connect } from 'react-redux';
 
 class Connect extends Component {
+  componentDidUpdate = (prevProp) => {
+		const { device, isConnected, transport } = this.props;
+		// if (isConnected && transport && device) {
+		// 	console.log(`ready for commands`)
+		// 	let bc = new BroadcastChannel('coolwallets');
+		// 	bc.postMessage({ target: 'connection-status', connected: true });
+		// }
+	}
+
 	render() {
 		const { device, isConnected, transport } = this.props;
 		return (
@@ -21,7 +30,7 @@ class Connect extends Component {
 						'Wallet is not connected'
 					)}
 				</Title>
-				<WebScript transport={transport} />
+				<WebScript transport={transport} isConnected={isConnected} device={device} />
 				<Modal image={'contract.png'} message={'Signing...'} title={''} />
 				<IconWrapper>
 					<Image src={'laptop.png'} />
