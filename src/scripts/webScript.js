@@ -108,6 +108,7 @@ class webPageEventHandler extends Component {
 				message,
 				addIndex,
 				publicKey,
+				false,
 				() => this.props.openModal(confirmOnCardContent),
 				() => this.props.openModal(signingContent)
 			);
