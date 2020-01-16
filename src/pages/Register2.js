@@ -76,7 +76,7 @@ class Register2 extends Component {
 			} else {
 				console.log('wallet has been created, walletCreated');
 				this.props.history.push({
-					pathname: '/'
+					pathname: '/ready'
 				});
 			}
 		} catch (error) {

@@ -11,6 +11,7 @@ import Register2 from './pages/Register2';
 import IframeScript from './scripts/iframeScript';
 import Modal from './components/Modal';
 import GenerateWallet from './pages/GenerateWallet';
+import Ready from './pages/Ready';
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 						<Route path="/iframe" component={IframeScript} />
 						<Route path="/register2" component={Register2} />
 						<Route path="/generateWallet" component={GenerateWallet} />
+						<Route path="/ready" component={Ready} />
 					</Container>
 				</Provider>
 			</Switch>

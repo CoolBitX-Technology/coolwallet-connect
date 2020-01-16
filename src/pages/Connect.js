@@ -8,28 +8,12 @@ import { EXTRA_LARGE } from '../constant';
 import { connect } from 'react-redux';
 
 class Connect extends Component {
-  componentDidUpdate = (prevProp) => {
-		const { device, isConnected, transport } = this.props;
-		// if (isConnected && transport && device) {
-		// 	console.log(`ready for commands`)
-		// 	let bc = new BroadcastChannel('coolwallets');
-		// 	bc.postMessage({ target: 'connection-status', connected: true });
-		// }
-	}
-
 	render() {
 		const { device, isConnected, transport } = this.props;
+
 		return (
 			<Wrapper>
-				<Title>
-					{isConnected && transport && device ? (
-						<TextWrapper>
-							Connected with <Text>{device.name.split(' ')[1]}</Text>
-						</TextWrapper>
-					) : (
-						'Wallet is not connected'
-					)}
-				</Title>
+				<Title>'Wallet is not connected'</Title>
 				<WebScript transport={transport} isConnected={isConnected} device={device} />
 				<Modal image={'contract.png'} message={'Signing...'} title={''} />
 				<IconWrapper>
@@ -50,11 +34,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, null)(Connect);
-const TextWrapper = styled.div`display: flex;`;
-const Text = styled.div`
-	color: #ffba12;
-	margin-left: 8px;
-`;
 const Image = styled.img`
 	height: 40px;
 	@media (max-width: 480px) {
