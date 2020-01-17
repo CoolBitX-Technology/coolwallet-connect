@@ -13,15 +13,15 @@ class Connect extends Component {
 
 		return (
 			<Wrapper>
-				<Title>'Wallet is not connected'</Title>
+				<Title>Wallet is not connected</Title>
 				<WebScript transport={transport} isConnected={isConnected} device={device} />
 				<Modal image={'contract.png'} message={'Signing...'} title={''} />
 				<IconWrapper>
 					<Image src={'laptop.png'} />
-					<Image src={isConnected ? 'bluetooth_connected.png' : 'bluetooth.png'} />
+					<Image src={'bluetooth.png'} />
 					<Image src={'card.png'} />
 				</IconWrapper>
-				{isConnected && device ? null : <BluetoothConnectButton history={this.props.history} />}
+				{<BluetoothConnectButton history={this.props.history} />}
 			</Wrapper>
 		);
 	}
