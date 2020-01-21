@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/coolwallet-connect/static/css/main.5f7a07f3.chunk.css",
-    "main.js": "/coolwallet-connect/static/js/main.2194078d.chunk.js",
-    "runtime-main.js": "/coolwallet-connect/static/js/runtime-main.4f0ff8c3.js",
-    "static/js/2.cd3495bb.chunk.js": "/coolwallet-connect/static/js/2.cd3495bb.chunk.js",
+    "main.js": "/coolwallet-connect/static/js/main.0279ab4a.chunk.js",
+    "runtime-main.js": "/coolwallet-connect/static/js/runtime-main.8e528b5a.js",
+    "static/js/2.89f76c6f.chunk.js": "/coolwallet-connect/static/js/2.89f76c6f.chunk.js",
     "index.html": "/coolwallet-connect/index.html",
-    "precache-manifest.af712ee0febaba66cf644962b212fcd9.js": "/coolwallet-connect/precache-manifest.af712ee0febaba66cf644962b212fcd9.js",
+    "precache-manifest.c77c03ad6c868b5d8974a8f19b9a8f6c.js": "/coolwallet-connect/precache-manifest.c77c03ad6c868b5d8974a8f19b9a8f6c.js",
     "service-worker.js": "/coolwallet-connect/service-worker.js"
   },
   "entrypoints": [
-    "static/js/runtime-main.4f0ff8c3.js",
-    "static/js/2.cd3495bb.chunk.js",
+    "static/js/runtime-main.8e528b5a.js",
+    "static/js/2.89f76c6f.chunk.js",
     "static/css/main.5f7a07f3.chunk.css",
-    "static/js/main.2194078d.chunk.js"
+    "static/js/main.0279ab4a.chunk.js"
   ]
 }
