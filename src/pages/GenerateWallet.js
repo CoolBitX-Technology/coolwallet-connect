@@ -116,7 +116,7 @@ class GenerateWallet extends Component {
 			if (result) {
 				closeModal();
 				this.props.history.push({
-					pathname: '/ready'
+					pathname: '/'
 				});
 			}
 		} catch (error) {

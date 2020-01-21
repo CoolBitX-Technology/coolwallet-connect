@@ -20,6 +20,10 @@ class Ready extends Component {
 			console.log(`2ready for commands`);
 			let bc = new BroadcastChannel('coolwallets');
 			bc.postMessage({ target: 'connection-status', connected: true });
+		} else {
+			this.props.history.push({
+				pathname: '/'
+			});
 		}
 	};
 
@@ -29,12 +33,12 @@ class Ready extends Component {
 		return (
 			<Wrapper>
 				<Title>
-					{isConnected && transport && device ? (
+					{isConnected &&
+					transport &&
+					device && (
 						<TextWrapper>
 							Connected with <Text>{device.name.split(' ')[1]}</Text>
 						</TextWrapper>
-					) : (
-						'Wallet is not connected'
 					)}
 				</Title>
 				<IconWrapper>

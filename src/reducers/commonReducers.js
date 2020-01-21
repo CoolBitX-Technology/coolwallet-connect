@@ -12,7 +12,8 @@ const initialState = {
 	transport: null,
 	isConnected: false,
 	wallet: null,
-	paired: null
+	paired: null,
+	isWalletCreated: false
 };
 
 const commonReducer = (state = initialState, action) => {

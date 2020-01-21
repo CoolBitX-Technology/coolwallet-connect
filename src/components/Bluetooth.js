@@ -81,6 +81,7 @@ class Bluetooth extends Component {
 								pathname: '/generateWallet',
 								walletCreated // register2 最後會用到
 							});
+							return;
 						}
 					} else {
 						// 有存Appid 但是卡片不認得，所以無效
@@ -102,6 +103,7 @@ class Bluetooth extends Component {
 						walletCreated // register2 最後會用到
 						// paired
 					});
+					return;
 				}
 				this.props.history.push({
 					pathname: '/ready'

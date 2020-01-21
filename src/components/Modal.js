@@ -13,7 +13,6 @@ class Modal extends Component {
 	render() {
 		const { showModal, closeModal } = this.props;
 		const { logo, message, title, action, disableBackdropClick } = this.props.modalContent;
-		console.log('disableBackdropClick', disableBackdropClick);
 		return (
 			<div>
 				<Dialog
@@ -47,11 +46,7 @@ class Modal extends Component {
 					<ActionWrapper>
 						{action ? <Button width={150} label={action.okText} handleOnClick={action.okCallback} /> : null}
 						{action && action.CancelText ? (
-							<Button
-								width={150}
-								label={action.CancelText}
-								handleOnClick={closeModal}
-							/>
+							<Button width={150} label={action.CancelText} handleOnClick={closeModal} />
 						) : null}
 					</ActionWrapper>
 				</Dialog>
