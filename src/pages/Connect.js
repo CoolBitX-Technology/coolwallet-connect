@@ -2,29 +2,24 @@ import React, { Component } from 'react';
 import Modal from '../components/Modal';
 import styled from 'styled-components';
 import BluetoothConnectButton from '../components/Bluetooth';
-import WebScript from '../scripts/webScript';
-// import { Button } from '@material-ui/core';
+import WebScript from '../scripts/webScript';\
 import { EXTRA_LARGE } from '../constant';
 import { connect } from 'react-redux';
 
 class Connect extends Component {
 	componentDidMount = () => {
-		console.log(`page did mount`)
 		let bc = new BroadcastChannel('coolwallets');
 		bc.postMessage({ target: 'tab-status', ready: false });
 	}
 
 	render() {
-		const { device, isConnected, transport, isReady } = this.props;
-
+		const { transport, isReady } = this.props;
 		return (
 			<Wrapper>
 				<Title>Wallet is not connected</Title>
 				<WebScript 
 					isReady = {isReady}
-					transport={transport} 
-					isConnected={isConnected} 
-					device={device}
+					transport={transport}
 				/>
 				<Modal image={'contract.png'} message={'Signing...'} title={''} />
 				<IconWrapper>
