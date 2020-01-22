@@ -11,12 +11,12 @@ export const processingContent = (message) => ({
 
 export const confirmOnCardContent = {
 	logo: 'card.png',
-	message: 'Confirm on your card',
+	message: 'Please confirm on your card',
 	disableBackdropClick: true
 };
 
 export const resetContent = (callback) => ({
-	title: 'Lost your device?',
+	title: 'Can\'t find your password?',
 	logo: '',
 	message: 'Would you like to reset your wallet?',
 	action: {
