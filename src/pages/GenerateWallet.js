@@ -197,7 +197,7 @@ class GenerateWallet extends Component {
 
 				{active === '1' ? (
 					<Fragment>
-						<Text>Disconnect from the Internet if you want to be absolutely safe on this step</Text>
+						<Text>Enter your mnenomic seed phrase to recover you wallet</Text>
 						<InfoBox
 							value={seed}
 							isSeedValidated={isSeedValidated}
