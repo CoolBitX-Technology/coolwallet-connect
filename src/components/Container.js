@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { HEADER_HEIGHT } from './Header';
+// import { HEADER_HEIGHT } from './Header';
 
 export default class Container extends Component {
 	render() {

@@ -8,6 +8,7 @@ import {
 	setupDevice,
 	setupTransport,
 	setupIsConnected,
+	setupIsReady,
 	setupWallet,
 	openModal,
 	closeModal,
@@ -19,6 +20,7 @@ class Bluetooth extends Component {
 	connect = async () => {
 		const {
 			setupDevice,
+			setupIsReady,
 			setupIsConnected,
 			setupTransport,
 			setupWallet,
@@ -36,6 +38,10 @@ class Bluetooth extends Component {
 
 				// disconnect listener
 				WebBleTransport.setOnDisconnect(device, () => {
+					setupIsReady(false)
+					let bc = new BroadcastChannel('coolwallets');
+					bc.postMessage({ target: 'tab-status', ready: false });
+
 					setupIsConnected(false);
 					setupTransport(null);
 					openModal(
@@ -47,6 +53,7 @@ class Bluetooth extends Component {
 						})
 					);
 				});
+
 				setupTransport(transport);
 				setupIsConnected(true);
 				setupDevice(device);
@@ -68,9 +75,6 @@ class Bluetooth extends Component {
 						const { walletCreated } = await wallet.getCardInfo();
 						closeModal();
 						if (walletCreated) {
-							console.log(`wallet created, return connection status true la`);
-							let bc = new BroadcastChannel('coolwallets');
-							bc.postMessage({ target: 'connection-status', connected: true });
 							this.props.history.push({
 								pathname: '/ready'
 							});
@@ -113,14 +117,6 @@ class Bluetooth extends Component {
 		});
 	};
 
-	//這個方法目前看起來沒有用到
-	// disconnect = () => {
-	// 	const transport = this.props.transport;
-	// 	WebBleTransport.disconnect(transport.device.id);
-	// 	this.props.isConnected(false);
-	// 	// this.setState({ transport: null });
-	// 	this.props.setTransport(null);
-	// };
 	render() {
 		return <Button label={'Connect'} handleOnClick={this.connect} />;
 	}
@@ -131,6 +127,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
+	setupIsReady,
 	setupDevice,
 	setupIsConnected,
 	setupTransport,

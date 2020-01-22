@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import Button from '../components/Button';
 import { connect } from 'react-redux';
 import { openModal, closeModal, setupDevice, setupPaired } from '../actions';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
+// import Dialog from '@material-ui/core/Dialog';
+// import DialogTitle from '@material-ui/core/DialogTitle';
 import { resetContent, confirmOnCardContent } from '../ModalContents';
 import AccountBalanceWalletOutlinedIcon from '@material-ui/icons/AccountBalanceWalletOutlined';
 
@@ -88,7 +88,7 @@ class Register2 extends Component {
 		return paired ? comp1 : comp2;
 	};
 	resetCard = async () => {
-		const { history, setupDevice } = this.props;
+		// const { history, setupDevice } = this.props;
 		const { wallet } = this.state;
 		const { closeModal, openModal, setupPaired } = this.props;
 		openModal(confirmOnCardContent);
@@ -164,10 +164,11 @@ const Container = styled.div`
 	width: 90%;
 `;
 
-const TextUnderline = styled.div`
-	text-decoration: underline;
-	cursor: pointer;
-`;
+// const TextUnderline = styled.div`
+// 	text-decoration: underline;
+// 	cursor: pointer;
+// `;
+
 const Title = styled.div`
 	font-size: ${EXTRA_LARGE};
 	color: ${BROWN_GREY};
