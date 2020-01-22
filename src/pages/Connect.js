@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Modal from '../components/Modal';
 import styled from 'styled-components';
 import BluetoothConnectButton from '../components/Bluetooth';
-import WebScript from '../scripts/webScript';\
+import WebScript from '../scripts/webScript';
 import { EXTRA_LARGE } from '../constant';
 import { connect } from 'react-redux';
 
