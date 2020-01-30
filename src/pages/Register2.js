@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { openModal, closeModal, setupDevice, setupPaired } from '../actions';
 // import Dialog from '@material-ui/core/Dialog';
 // import DialogTitle from '@material-ui/core/DialogTitle';
-import { resetContent, confirmOnCardContent } from '../ModalContents';
+import { resetContent, confirmOnCardContent, errorMessageContent } from '../ModalContents';
 import AccountBalanceWalletOutlinedIcon from '@material-ui/icons/AccountBalanceWalletOutlined';
 
 import CWSWallet from '@coolwallets/wallet';
@@ -57,7 +57,7 @@ class Register2 extends Component {
 				});
 			}
 		} catch (error) {
-			console.log(error);
+			openModal(errorMessageContent(error.message));
 		}
 	};
 	renderConditionalComponent = (comp1, comp2) => {
@@ -94,17 +94,16 @@ class Register2 extends Component {
 					{this.renderConditionalComponent(
 						<Fragment>
 							{/* Please use the pairing password to add CoolWallet Connect to{' '} */}
-							Please enter the pairing password to register this browser to the device.
-
-							If you're using CoolBitX App, you can find your pairing password under setting session.
+							Please enter the pairing password to register this browser to the device. If you're using
+							CoolBitX App, you can find your pairing password under setting session.
 						</Fragment>,
-						
-						// Brand new wallet. 
+						// Brand new wallet.
 						'Please specify a 8 digit number as pairing password and click register.'
 					)}
 				</InfoBox>
 				<Wrapper>
 					<PairingPasswordInput
+						maxLength="8"
 						placeholder={'Pairing Password'}
 						style={{ color: 'white' }}
 						onChange={({ target }) => this.setState({ pairingPassword: target.value })}
@@ -112,7 +111,9 @@ class Register2 extends Component {
 					<Button width={200} label={'Register'} handleOnClick={this.handleOnClick} />
 				</Wrapper>
 				{this.renderConditionalComponent(
-					<Hint onClick={() => openModal(resetContent(() => this.resetCard()))}>Can't find your password?</Hint>,
+					<Hint onClick={() => openModal(resetContent(() => this.resetCard()))}>
+						Can't find your password?
+					</Hint>,
 					null
 				)}
 			</Container>
