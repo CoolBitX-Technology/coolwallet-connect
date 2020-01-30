@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/coolwallet-connect/static/css/main.5f7a07f3.chunk.css",
-    "main.js": "/coolwallet-connect/static/js/main.0758eca3.chunk.js",
+    "main.js": "/coolwallet-connect/static/js/main.cd44e7dc.chunk.js",
     "runtime-main.js": "/coolwallet-connect/static/js/runtime-main.8e528b5a.js",
     "static/js/2.790a8a91.chunk.js": "/coolwallet-connect/static/js/2.790a8a91.chunk.js",
     "index.html": "/coolwallet-connect/index.html",
-    "precache-manifest.703b3e385d9eb150e843baa9a3451479.js": "/coolwallet-connect/precache-manifest.703b3e385d9eb150e843baa9a3451479.js",
+    "precache-manifest.d1e8470bfd61b01cb412cd726bc15dec.js": "/coolwallet-connect/precache-manifest.d1e8470bfd61b01cb412cd726bc15dec.js",
     "service-worker.js": "/coolwallet-connect/service-worker.js"
   },
   "entrypoints": [
     "static/js/runtime-main.8e528b5a.js",
     "static/js/2.790a8a91.chunk.js",
     "static/css/main.5f7a07f3.chunk.css",
-    "static/js/main.0758eca3.chunk.js"
+    "static/js/main.cd44e7dc.chunk.js"
   ]
 }

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/coolwallet-connect/precache-manifest.703b3e385d9eb150e843baa9a3451479.js"
+  "/coolwallet-connect/precache-manifest.d1e8470bfd61b01cb412cd726bc15dec.js"
 );
 
 self.addEventListener('message', (event) => {
