@@ -3,7 +3,7 @@ import { getAppKeysOrGenerate, getAppIdOrNull } from '../Utils/sdkUtil';
 import CoolWalletEth from '@coolwallets/eth';
 import { openModal, closeModal } from '../actions';
 import { connect } from 'react-redux';
-import { signingContent, processingContent, confirmOnCardContent } from '../ModalContents';
+import { signingContent, processingContent, confirmOnCardContent, errorMessageContent } from '../ModalContents';
 
 let { appPrivateKey } = getAppKeysOrGenerate();
 
@@ -67,8 +67,8 @@ class webPageEventHandler extends Component {
 	}
 
 	async checkReadyForCommand() {
-		if (this.props.transport && this.props.device && this.props.isConnected ) {
-			console.log(`connected:... return true`)
+		if (this.props.transport && this.props.device && this.props.isConnected) {
+			console.log(`connected:... return true`);
 			this.bc.postMessage({ target: 'connection-status', connected: true });
 		}
 	}
@@ -77,9 +77,11 @@ class webPageEventHandler extends Component {
 		try {
 			const res = await this.app.getPublicKey(addrIndex, true);
 			this.sendMessageToIframe(replyAction, true, res);
-			this.props.closeModal(processingContent());
+			this.props.closeModal();
 		} catch (err) {
+			this.props.closeModal();
 			this.sendMessageToIframe(replyAction, false, { error: err.toString() });
+			this.props.openModal(errorMessageContent(err));
 		} finally {
 			this.cleanUp();
 		}
@@ -95,9 +97,11 @@ class webPageEventHandler extends Component {
 				() => this.props.openModal(signingContent)
 			);
 			this.sendMessageToIframe(replyAction, true, res);
-			this.props.closeModal(signingContent);
+			this.props.closeModal();
 		} catch (err) {
+			this.props.closeModal();
 			this.sendMessageToIframe(replyAction, false, { error: err.toString() });
+			this.props.openModal(errorMessageContent(err));
 		} finally {
 			this.cleanUp();
 		}
@@ -114,9 +118,11 @@ class webPageEventHandler extends Component {
 				() => this.props.openModal(signingContent)
 			);
 			this.sendMessageToIframe(replyAction, true, res);
-			this.props.closeModal(signingContent);
+			this.props.closeModal();
 		} catch (err) {
+			this.props.closeModal();
 			this.sendMessageToIframe(replyAction, false, { error: err.toString() });
+			this.props.openModal(errorMessageContent(err));
 		} finally {
 			this.cleanUp();
 		}
@@ -132,9 +138,11 @@ class webPageEventHandler extends Component {
 				() => this.props.openModal(signingContent)
 			);
 			this.sendMessageToIframe(replyAction, true, res);
-			this.props.closeModal(signingContent);
+			this.props.closeModal();
 		} catch (err) {
+			this.props.closeModal();
 			this.sendMessageToIframe(replyAction, false, { error: err.toString() });
+			this.props.openModal(errorMessageContent(err));
 		} finally {
 			this.cleanUp();
 		}
