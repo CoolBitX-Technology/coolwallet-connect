@@ -4,22 +4,12 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 class Ready extends Component {
-	// componentDidUpdate = (prevProp) => {
-	// 	const { device, isConnected, transport } = this.props;
-	// 	if (isConnected && transport && device) {
-	// 		console.log(`ready for commands`);
-	// 		let bc = new BroadcastChannel('coolwallets');
-	// 		bc.postMessage({ target: 'connection-status', connected: true });
-	// 	}
-	// };
 
 	componentDidMount = () => {
 		const { device, isConnected, transport } = this.props;
-		console.log(`0ready for commands`, device, isConnected, transport);
 		if (isConnected && transport && device) {
-			console.log(`2ready for commands`);
 			let bc = new BroadcastChannel('coolwallets');
-			bc.postMessage({ target: 'connection-status', connected: true });
+			bc.postMessage({ target: 'tab-status', ready: true });
 		} else {
 			this.props.history.push({
 				pathname: '/'

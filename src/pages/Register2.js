@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import Button from '../components/Button';
 import { connect } from 'react-redux';
 import { openModal, closeModal, setupDevice, setupPaired } from '../actions';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
+// import Dialog from '@material-ui/core/Dialog';
+// import DialogTitle from '@material-ui/core/DialogTitle';
 import { resetContent, confirmOnCardContent } from '../ModalContents';
 import AccountBalanceWalletOutlinedIcon from '@material-ui/icons/AccountBalanceWalletOutlined';
 
@@ -30,29 +30,6 @@ class Register2 extends Component {
 		const { showModal } = this.state;
 		this.setState({ showModal: !showModal });
 	};
-	// whitelist = () => {
-	// 	const { test, showModal } = this.state;
-	// 	return (
-	// 		<Dialog
-	// 			aria-describedby="alert-dialog-description"
-	// 			onClose={this.toggle}
-	// 			aria-labelledby="simple-dialog-title"
-	// 			open={showModal}
-	// 			fullWidth={true}
-	// 			maxWidth={'xs'}
-	// 			PaperProps={{
-	// 				style: {
-	// 					backgroundColor: '#202124',
-	// 					color: '#fff',
-	// 					boxShadow: '10px 10px 20px 0px rgba(0,0,0,0.2)',
-	// 					borderRadius: 15
-	// 				}
-	// 			}}
-	// 		>
-	// 			<DialogTitle id="simple-dialog-title">Your device</DialogTitle>
-	// 		</Dialog>
-	// 	);
-	// };
 	handleOnClick = async () => {
 		const { walletCreated } = this.props.history.location;
 		const { appPublicKey } = getAppKeysOrGenerate();
@@ -88,7 +65,7 @@ class Register2 extends Component {
 		return paired ? comp1 : comp2;
 	};
 	resetCard = async () => {
-		const { history, setupDevice } = this.props;
+		// const { history, setupDevice } = this.props;
 		const { wallet } = this.state;
 		const { closeModal, openModal, setupPaired } = this.props;
 		openModal(confirmOnCardContent);
@@ -106,11 +83,10 @@ class Register2 extends Component {
 				<Title>
 					{this.renderConditionalComponent(
 						<Fragment>
-							<AccountBalanceWalletIcon htmlColor={ORANGEY_YELLOW} fontSize="large" />Wallet is registered
+							<AccountBalanceWalletIcon htmlColor={ORANGEY_YELLOW} fontSize="large" />Wallet is paired.
 						</Fragment>,
 						<Fragment>
-							<AccountBalanceWalletOutlinedIcon htmlColor={BROWN_GREY} fontSize="large" />Wallet is brand
-							new
+							<AccountBalanceWalletOutlinedIcon htmlColor={BROWN_GREY} fontSize="large" />New Wallet
 						</Fragment>
 					)}
 				</Title>
@@ -118,11 +94,13 @@ class Register2 extends Component {
 					{this.renderConditionalComponent(
 						<Fragment>
 							{/* Please use the pairing password to add CoolWallet Connect to{' '} */}
-							Please add the pairing password to register.
-							{/* {先暫時拿掉whiteList} */}
-							{/* <TextUnderline onClick={() => this.setState({ showModal: true })}>whitelist.</TextUnderline> */}
+							Please enter the pairing password to register this browser to the device.
+
+							If you're using CoolBitX App, you can find your pairing password under setting session.
 						</Fragment>,
-						'Please click register to connect CoolWalletS with CoolWalletConnect.'
+						
+						// Brand new wallet. 
+						'Please specify a 8 digit number as pairing password and click register.'
 					)}
 				</InfoBox>
 				<Wrapper>
@@ -134,7 +112,7 @@ class Register2 extends Component {
 					<Button width={200} label={'Register'} handleOnClick={this.handleOnClick} />
 				</Wrapper>
 				{this.renderConditionalComponent(
-					<Hint onClick={() => openModal(resetContent(() => this.resetCard()))}>Lost your device?</Hint>,
+					<Hint onClick={() => openModal(resetContent(() => this.resetCard()))}>Can't find your password?</Hint>,
 					null
 				)}
 			</Container>
@@ -164,10 +142,11 @@ const Container = styled.div`
 	width: 90%;
 `;
 
-const TextUnderline = styled.div`
-	text-decoration: underline;
-	cursor: pointer;
-`;
+// const TextUnderline = styled.div`
+// 	text-decoration: underline;
+// 	cursor: pointer;
+// `;
+
 const Title = styled.div`
 	font-size: ${EXTRA_LARGE};
 	color: ${BROWN_GREY};

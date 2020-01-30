@@ -1,6 +1,9 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Switch, Route, HashRouter } from 'react-router-dom';
+import {
+	// BrowserRouter as Router, 
+	Switch, Route, HashRouter 
+} from 'react-router-dom';
 
 import './App.css';
 import Header from './components/Header';

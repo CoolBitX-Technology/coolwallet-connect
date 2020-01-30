@@ -1,18 +1,17 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import WebBleTransport from '@coolwallets/transport-web-ble';
-import { setupTransport, setupIsConnected, openModal, closeModal } from '../actions';
+import { setupTransport, setupIsConnected, setupIsReady, openModal, closeModal } from '../actions';
 
 class DisconnectListener extends Component {
 	componentDidMount = async () => {
 		WebBleTransport.listen(async (error, device) => {
-			console.log('Listening!');
-			console.log('device?', device);
 			if (device) {
 				WebBleTransport.setOnDisconnect(device, () => {
 					console.log('disconnect!!!');
 					setupIsConnected(false);
 					setupTransport(null);
+					setupIsReady(false)
 				});
 			}
 		});
@@ -36,6 +35,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
+	setupIsReady,
 	setupIsConnected,
 	setupTransport,
 	openModal,

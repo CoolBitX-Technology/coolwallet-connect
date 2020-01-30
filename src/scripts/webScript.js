@@ -19,7 +19,7 @@ class webPageEventHandler extends Component {
 
 	setUpListeners() {
 		window.onbeforeunload = () => {
-			this.bc.postMessage({ target: 'connection-status', connected: false });
+			this.bc.postMessage({ target: 'tab-status', ready: false });
 		};
 
 		this.bc.onmessage = async ({ data }) => {
@@ -67,9 +67,9 @@ class webPageEventHandler extends Component {
 	}
 
 	async checkReadyForCommand() {
-		if (this.props.transport && this.props.device && this.props.isConnected) {
+		if (this.props.isReady) {
 			console.log(`connected:... return true`);
-			this.bc.postMessage({ target: 'connection-status', connected: true });
+			this.bc.postMessage({ target: 'tab-status', ready: true });
 		}
 	}
 

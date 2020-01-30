@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { openModal, closeModal } from '../actions';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Button from './Button';
-import { BROWN_GREY, GREYISH_BROWN, DARK_GREY, LARGE } from '../constant';
+import { LARGE } from '../constant';
 
 class Modal extends Component {
 	render() {

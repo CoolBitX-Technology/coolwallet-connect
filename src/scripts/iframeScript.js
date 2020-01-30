@@ -4,7 +4,7 @@ export default class IframeComponent extends Component {
   constructor(props) {
     super(props)
     if (window.parent !== window) {
-      this.tabConnected = false
+      this.tabReady = false
       this.bc = new BroadcastChannel('coolwallets')
       this.setupListeners()
     }
@@ -21,11 +21,11 @@ export default class IframeComponent extends Component {
         const tab = this.openOnce(tabDomain, 'coolwallets-tab')
         
         tab.onbeforeunload = ()=>{
-          this.tabConnected = false
+          this.tabReady = false
         }
 
-        if (!this.tabConnected) this.pingTab()
-        while (!this.tabConnected) {
+        if (!this.tabReady) this.pingTab()
+        while (!this.tabReady) {
           console.log(`blocking`)
           await this.sleep(1000)
         }
@@ -36,9 +36,8 @@ export default class IframeComponent extends Component {
     }
 
     this.bc.onmessage = ({ data, source }) => {
-      if (data.target === 'connection-status' ) {
-        console.log(`got connect status: ${data.connected}`)
-        this.tabConnected = data.connected
+      if (data.target === 'tab-status' ) {
+        this.tabReady = data.ready
       } else {
         this.sendMessageToExtension(data)
       }
@@ -46,7 +45,6 @@ export default class IframeComponent extends Component {
   }
 
   pingTab(){
-    console.log(`ping tab check connected???`)
     this.bc.postMessage({ target: 'CWS-TAB', action: 'coolwallet-connection-check' })
   }
 
@@ -60,7 +58,8 @@ export default class IframeComponent extends Component {
     // if the "target" window was just opened, change its url
     if (winref.location.href === 'about:blank') {
       winref.location.href = url
-    } 
+    }
+    winref.focus()
     return winref
   }
 

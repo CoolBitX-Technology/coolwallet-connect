@@ -28,6 +28,10 @@ export const setupTransport = (payload) => ({
 	payload
 });
 
+export const setupIsReady = (payload) => ({
+	type: types.SETUP_ISREADY
+})
+
 export const setupWallet = (payload) => ({
 	type: types.SETUP_WALLET,
 	payload

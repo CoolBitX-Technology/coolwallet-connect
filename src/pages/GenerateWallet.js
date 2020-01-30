@@ -58,7 +58,7 @@ class GenerateWallet extends Component {
 	};
 	handleOnClick = async () => {
 		const { wallet } = this.props;
-		const { seed, isSeedValidated, isFormatValidated, seedType } = this.state;
+		const { seed, isFormatValidated, seedType } = this.state;
 		const { openModal, closeModal } = this.props;
 		if (!isFormatValidated || !validateLength(seed)) {
 			return;
@@ -171,7 +171,7 @@ class GenerateWallet extends Component {
 	};
 
 	render() {
-		const { active, step, isSeedValidated, isFormatValidated, seed, seedType, errorMessage } = this.state;
+		const { active, step, isSeedValidated, isFormatValidated, seed, errorMessage } = this.state;
 		console.log('isSeedValidated', isSeedValidated);
 		return (
 			<Container>
@@ -197,7 +197,7 @@ class GenerateWallet extends Component {
 
 				{active === '1' ? (
 					<Fragment>
-						<Text>Disconnect from the Internet if you want to be absolutely safe on this step</Text>
+						<Text>Enter your mnenomic seed phrase to recover you wallet</Text>
 						<InfoBox
 							value={seed}
 							isSeedValidated={isSeedValidated}
