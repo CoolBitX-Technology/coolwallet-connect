@@ -32,19 +32,19 @@ class webPageEventHandler extends Component {
 						this.checkReadyForCommand();
 						break;
 					case 'coolwallet-unlock':
-						this.props.openModal(processingContent());
+						this.props.openModal(processingContent('Deriving...'));
 						this.unlock(replyAction, params.addrIndex);
 						break;
 					case 'coolwallet-sign-transaction':
-						this.props.openModal(processingContent());
+						this.props.openModal(processingContent('Processing Transaction...'));
 						this.signTransaction(replyAction, params.addrIndex, params.tx, params.publicKey);
 						break;
 					case 'coolwallet-sign-personal-message':
-						this.props.openModal(processingContent());
+						this.props.openModal(processingContent('Processing Message...'));
 						this.signPersonalMessage(replyAction, params.addrIndex, params.message, params.publicKey);
 						break;
 					case 'coolwallet-sign-typed-data':
-						this.props.openModal(processingContent());
+						this.props.openModal(processingContent('Processing Typed Data...'));
 						this.signTypedData(replyAction, params.addrIndex, params.typedData, params.publicKey);
 						break;
 					default:

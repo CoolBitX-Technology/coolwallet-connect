@@ -3,7 +3,8 @@ export const signingContent = {
 	message: 'Signing...'
 };
 
-export const processingContent = (message) => ({
+export const processingContent = (message, title) => ({
+	title,
 	logo: 'Processing',
 	message: message || 'Processing...',
 	disableBackdropClick: true
