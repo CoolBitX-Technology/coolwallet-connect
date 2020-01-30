@@ -81,7 +81,7 @@ class webPageEventHandler extends Component {
 		} catch (err) {
 			this.props.closeModal();
 			this.sendMessageToIframe(replyAction, false, { error: err.toString() });
-			this.props.openModal(errorMessageContent(err));
+			this.props.openModal(errorMessageContent(err.message));
 		} finally {
 			this.cleanUp();
 		}
@@ -101,7 +101,7 @@ class webPageEventHandler extends Component {
 		} catch (err) {
 			this.props.closeModal();
 			this.sendMessageToIframe(replyAction, false, { error: err.toString() });
-			this.props.openModal(errorMessageContent(err));
+			this.props.openModal(errorMessageContent(err.message));
 		} finally {
 			this.cleanUp();
 		}
@@ -122,7 +122,7 @@ class webPageEventHandler extends Component {
 		} catch (err) {
 			this.props.closeModal();
 			this.sendMessageToIframe(replyAction, false, { error: err.toString() });
-			this.props.openModal(errorMessageContent(err));
+			this.props.openModal(errorMessageContent(err.message));
 		} finally {
 			this.cleanUp();
 		}
@@ -142,7 +142,7 @@ class webPageEventHandler extends Component {
 		} catch (err) {
 			this.props.closeModal();
 			this.sendMessageToIframe(replyAction, false, { error: err.toString() });
-			this.props.openModal(errorMessageContent(err));
+			this.props.openModal(errorMessageContent(err.message));
 		} finally {
 			this.cleanUp();
 		}
