@@ -82,7 +82,7 @@ class GenerateWallet extends Component {
 			}
 		} catch (error) {
 			closeModal();
-			openModal(errorMessageContent(error));
+			openModal(errorMessageContent(error.message));
 			console.log('error', error);
 		}
 	};

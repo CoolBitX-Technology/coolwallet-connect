@@ -14,7 +14,7 @@ import {
 	closeModal,
 	setupPaired
 } from '../actions';
-import { processingContent, hintMessageContent } from '../ModalContents';
+import { processingContent, hintMessageContent, errorMessageContent } from '../ModalContents';
 
 class Bluetooth extends Component {
 	connect = async () => {
@@ -113,7 +113,10 @@ class Bluetooth extends Component {
 					pathname: '/ready'
 				});
 			}
-			if (error) throw error;
+			if (error) {
+				closeModal();
+				openModal(errorMessageContent(error.message))
+			};
 		});
 	};
 
