@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bd97ca0159d4bca373bbc1e6f19b5c2b",
+    "revision": "b96a8558199f13f66482400697778605",
     "url": "/coolwallet-connect/index.html"
   },
   {
-    "revision": "9e61100e55e28fda62c1",
+    "revision": "e3183bd5084f14010dca",
     "url": "/coolwallet-connect/static/css/main.5f7a07f3.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/coolwallet-connect/static/js/2.00007f0a.chunk.js"
   },
   {
-    "revision": "9e61100e55e28fda62c1",
-    "url": "/coolwallet-connect/static/js/main.ec568af4.chunk.js"
+    "revision": "e3183bd5084f14010dca",
+    "url": "/coolwallet-connect/static/js/main.4b938d82.chunk.js"
   },
   {
     "revision": "5edc126fa8eaee0aba0d",
