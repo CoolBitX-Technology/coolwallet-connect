@@ -12,7 +12,6 @@ export default class IframeComponent extends Component {
 
 	setupListeners() {
 		const tabDomain = 'https://coolbitx-technology.github.io/coolwallet-connect/#/';
-		// const tabDomain = 'http://localhost:3000'
 
 		// Open as IFRAME
 		onmessage = async ({ data, source, origin }) => {
